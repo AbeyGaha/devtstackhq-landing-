@@ -1,0 +1,22 @@
+body {
+  background: black;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.offer {
+  background: red;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+button {
+  padding: 15px 25px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
