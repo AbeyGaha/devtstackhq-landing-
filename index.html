@@ -1,97 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>DevStackHQ</title>
+  <meta charset="UTF-8">
+  <title>DevStackHQ — Execution Engine Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial;
       margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       background: #f9fafb;
-      color: #111;
-      text-align: center;
+      color: #111827;
     }
 
     .container {
-      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 52px;
       margin-bottom: 10px;
-      animation: fadeIn 1s ease-in;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #4f46e5;
+      margin-bottom: 10px;
     }
 
     p {
       font-size: 18px;
-      color: #555;
+      color: #6b7280;
       max-width: 700px;
       margin: auto;
     }
 
+    .highlight {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #374151;
+    }
+
     .offer {
       background: #fee2e2;
-      padding: 12px;
-      margin: 20px auto;
       display: inline-block;
+      padding: 12px 18px;
       border-radius: 8px;
-      font-weight: bold;
-      animation: pulse 1.5s infinite;
+      margin-top: 25px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .offer small {
+      display: block;
+      font-weight: normal;
+      color: #7f1d1d;
+      margin-top: 5px;
     }
 
     .cta button {
-      margin-top: 25px;
-      padding: 16px 30px;
+      margin-top: 30px;
+      padding: 16px 28px;
       font-size: 18px;
       border-radius: 10px;
       border: none;
-      cursor: pointer;
       background: #4f46e5;
       color: white;
+      cursor: pointer;
       transition: 0.3s;
     }
 
     .cta button:hover {
-      transform: scale(1.05);
       background: #4338ca;
+      transform: scale(1.05);
     }
 
     .section {
       margin-top: 80px;
     }
 
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
     .card {
       background: white;
       padding: 25px;
-      margin: 15px;
       border-radius: 12px;
-      display: inline-block;
       width: 260px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
       transition: 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
 
     .flow {
-      margin-top: 40px;
+      margin-top: 30px;
       font-size: 16px;
-      color: #444;
+      color: #4b5563;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    .footer {
+      margin-top: 80px;
+      padding: 30px;
+      font-size: 14px;
+      color: #9ca3af;
     }
-
-    @keyframes pulse {
-      0% {opacity: 1;}
-      50% {opacity: 0.6;}
-      100% {opacity: 1;}
-    }
-
   </style>
 </head>
 
@@ -99,57 +123,99 @@
 
 <div class="container">
 
-  <h1>🚀 DevStackHQ</h1>
+  <h1>⚡ DevStackHQ</h1>
+  <h2>Execution Engine Platform</h2>
 
   <p>
-    Focused AI tools for developers, founders, and creators.  
-    One account. Multiple powerful tools.
+    Build, generate, analyze, and execute — all in one system.
   </p>
 
+  <div class="highlight">
+    Generate → Execute → Deliver
+  </div>
+
+  <!-- 🔥 UPDATED OFFER -->
   <div class="offer">
-    🔥 Early 100 Users Get 50% OFF
+    🔥 First 100 users get 50% OFF
+    <small>
+      Due to high demand, this offer may extend to the first 1000 users.
+    </small>
   </div>
 
   <div class="cta">
     <a href="https://devstackhq.com">
-      <button>🚀 Create Account & Get Access</button>
+      <button>🚀 Start Execution</button>
     </a>
   </div>
 
-  <div class="flow">
-    Signup → Login → Access Products Dashboard
+</div>
+
+<!-- WHAT YOU CAN EXECUTE -->
+
+<div class="container section">
+
+  <h2>🧠 What You Can Execute</h2>
+
+  <div class="grid">
+    <div class="card">✍️ Write content → Download ready file</div>
+    <div class="card">💻 Fix code → Get working solution</div>
+    <div class="card">📊 Research topics → Get insights</div>
+    <div class="card">⚡ Generate scripts → Ready to use</div>
   </div>
 
 </div>
 
 <!-- PRODUCTS -->
 
-<div class="section">
+<div class="container section">
 
-  <h2>Products Inside DevStackHQ</h2>
+  <h2>🚀 Products</h2>
 
-  <div class="card">
-    <h3>SearchPulse AI</h3>
-    <p>Generate SEO blogs, research & content instantly</p>
-  </div>
+  <div class="grid">
 
-  <div class="card">
-    <h3>RepoScope</h3>
-    <p>Analyze GitHub repos, contributors & insights</p>
+    <div class="card">
+      <h3>SearchPulse AI</h3>
+      <p>Execution engine for content, code & research workflows.</p>
+    </div>
+
+    <div class="card">
+      <h3>RepoScope</h3>
+      <p>Analyze GitHub repositories with deep insights.</p>
+    </div>
+
   </div>
 
 </div>
 
-<!-- HOW IT WORKS -->
+<!-- WHY -->
 
-<div class="section">
+<div class="container section">
 
-  <h2>How It Works</h2>
+  <h2>🎯 Why DevStackHQ</h2>
 
-  <p>
-    Create account → Login → Access dashboard → Use tools → Upgrade anytime  
-  </p>
+  <div class="grid">
+    <div class="card">⚡ Output-first system</div>
+    <div class="card">💻 Code + Content unified</div>
+    <div class="card">📊 Built-in research engine</div>
+    <div class="card">🚀 Start free, scale anytime</div>
+  </div>
 
+</div>
+
+<!-- FLOW -->
+
+<div class="container section">
+
+  <h2>⚙️ How It Works</h2>
+
+  <div class="flow">
+    Create account → Enter workspace → Execute tasks → Get results
+  </div>
+
+</div>
+
+<div class="footer">
+  Built for people who want results, not prompts.
 </div>
 
 </body>
