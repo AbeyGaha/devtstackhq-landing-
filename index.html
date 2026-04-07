@@ -1,272 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DevStackHQ — Execution Engine</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevStackHQ — Execution Engine</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f9fafb;
-      color: #111827;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0b0f19;
+  color: #ffffff;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 20px;
-      text-align: center;
-    }
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+  text-align: center;
+}
 
-    h1 {
-      font-size: 54px;
-      margin-bottom: 10px;
-    }
+h1 {
+  font-size: 64px;
+  margin-bottom: 10px;
+}
 
-    h2 {
-      font-size: 28px;
-      color: #4f46e5;
-      margin-bottom: 10px;
-    }
+h2 {
+  font-size: 30px;
+  color: #7c7cff;
+}
 
-    p {
-      font-size: 18px;
-      color: #6b7280;
-      max-width: 720px;
-      margin: auto;
-      line-height: 1.6;
-    }
+p {
+  font-size: 18px;
+  color: #cbd5e1;
+  max-width: 700px;
+  margin: auto;
+}
 
-    .subheadline {
-      margin-top: 20px;
-      font-size: 20px;
-      color: #374151;
-    }
+.cta button {
+  margin-top: 40px;
+  padding: 18px 40px;
+  font-size: 18px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .offer {
-      background: #fee2e2;
-      display: inline-block;
-      padding: 14px 20px;
-      border-radius: 10px;
-      margin-top: 30px;
-      font-weight: 600;
-    }
+.cta button:hover {
+  transform: scale(1.08);
+}
 
-    .offer small {
-      display: block;
-      font-weight: normal;
-      color: #7f1d1d;
-      margin-top: 6px;
-    }
+.section {
+  margin-top: 100px;
+}
 
-    .cta button {
-      margin-top: 35px;
-      padding: 18px 34px;
-      font-size: 18px;
-      border-radius: 12px;
-      border: none;
-      background: #4f46e5;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
+}
 
-    .cta button:hover {
-      background: #4338ca;
-      transform: scale(1.06);
-    }
+.card {
+  background: #111827;
+  padding: 28px;
+  border-radius: 16px;
+  width: 280px;
+  transition: 0.3s;
+}
 
-    .section {
-      margin-top: 90px;
-    }
+.card:hover {
+  transform: translateY(-10px);
+  background: #1f2937;
+}
 
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 22px;
-      margin-top: 35px;
-    }
+.demo-box {
+  background: #111827;
+  border-radius: 16px;
+  padding: 30px;
+  margin-top: 40px;
+  text-align: left;
+}
 
-    .card {
-      background: white;
-      padding: 26px;
-      border-radius: 14px;
-      width: 270px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
+.demo-line {
+  background: #0b0f19;
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-family: monospace;
+  color: #7dd3fc;
+}
 
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 14px 35px rgba(0,0,0,0.12);
-    }
+.typing {
+  border-right: 2px solid #7c7cff;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(30, end), blink 1s infinite;
+}
 
-    .big-card {
-      width: 320px;
-    }
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
-    .flow {
-      margin-top: 30px;
-      font-size: 17px;
-      color: #4b5563;
-    }
+@keyframes blink {
+  50% { border-color: transparent }
+}
 
-    .footer {
-      margin-top: 90px;
-      padding: 30px;
-      font-size: 14px;
-      color: #9ca3af;
-    }
+.footer {
+  margin-top: 80px;
+  padding: 30px;
+  color: #6b7280;
+}
 
-  </style>
+</style>
 </head>
 
 <body>
 
 <!-- HERO -->
-
 <div class="container">
 
-  <h1>⚡ DevStackHQ</h1>
-  <h2>Execution Engine for Content, Code & Research</h2>
+<h1>⚡ DevStackHQ</h1>
+<h2>Stop Prompting. Start Executing.</h2>
 
-  <p>
-    Turn your ideas into real outputs — SEO content, working code, and data-driven insights — all in one platform.
-  </p>
+<p>
+This is not another AI tool.
+This is an execution engine that delivers real outputs — content, code, research.
+</p>
 
-  <div class="subheadline">
-    Not another AI tool. A system that gets work done.
-  </div>
+<div class="cta">
+<a href="https://devstackhq.com">
+<button>🚀 Start Execution</button>
+</a>
+</div>
 
-  <div class="offer">
-    🔥 First 100 users get 50% OFF
-    <small>
-      Due to high demand, this may extend to the first 1000 users.
-    </small>
-  </div>
+</div>
 
-  <div class="cta">
-    <a href="https://devstackhq.com">
-      <button>🚀 Start Execution</button>
-    </a>
-  </div>
+<!-- LIVE DEMO FEEL -->
+<div class="container section">
+
+<h2>⚡ See It In Action</h2>
+
+<div class="demo-box">
+<div class="demo-line">> User: Build REST API in Flask</div>
+<div class="demo-line typing">✔ API Generated + Routes + Auth + Deployment Ready</div>
+
+<div class="demo-line">> User: Write SEO Blog on AI Tools</div>
+<div class="demo-line">✔ 1500 words + Keywords + Ranking Structure</div>
+
+<div class="demo-line">> User: Analyze Trending Startups</div>
+<div class="demo-line">✔ Data + Insights + Market Summary</div>
+</div>
 
 </div>
 
 <!-- CORE VALUE -->
-
 <div class="container section">
 
-  <h2>💣 What Makes This Different</h2>
+<h2>💣 Why This Hits Different</h2>
 
-  <div class="grid">
-    <div class="card">❌ No prompt engineering needed</div>
-    <div class="card">⚡ Direct output generation</div>
-    <div class="card">🧠 Built-in research intelligence</div>
-    <div class="card">💻 Code + Content in one system</div>
-  </div>
-
+<div class="grid">
+<div class="card">❌ No Prompt Engineering</div>
+<div class="card">⚡ Direct Execution Output</div>
+<div class="card">🧠 Built-in Intelligence</div>
+<div class="card">💻 Code + Content Unified</div>
 </div>
-
-<!-- FEATURES -->
-
-<div class="container section">
-
-  <h2>🚀 What You Can Do</h2>
-
-  <div class="grid">
-
-    <div class="card big-card">
-      <h3>✍️ SEO Content Engine</h3>
-      <p>Generate blogs, articles, scripts and SEO-ready content that actually ranks.</p>
-    </div>
-
-    <div class="card big-card">
-      <h3>💻 Coding Engine</h3>
-      <p>Fix bugs, generate code, build APIs and get working solutions instantly.</p>
-    </div>
-
-    <div class="card big-card">
-      <h3>📊 Research Engine</h3>
-      <p>Analyze trends, news, YouTube and market data with real insights.</p>
-    </div>
-
-  </div>
 
 </div>
 
 <!-- PRODUCTS -->
-
 <div class="container section">
 
-  <h2>🧩 Products Inside</h2>
+<h2>🧩 Inside DevStackHQ</h2>
 
-  <div class="grid">
-
-    <div class="card">
-      <h3>SearchPulse AI</h3>
-      <p>Execution engine for content, code & research workflows.</p>
-    </div>
-
-    <div class="card">
-      <h3>RepoScope</h3>
-      <p>Deep GitHub analysis, contributors insights & repo intelligence.</p>
-    </div>
-
-  </div>
-
+<div class="grid">
+<div class="card">
+<h3>SearchPulse AI</h3>
+<p>Execution engine for content, code & research workflows.</p>
 </div>
 
-<!-- WHY -->
-
-<div class="container section">
-
-  <h2>🎯 Why DevStackHQ</h2>
-
-  <div class="grid">
-    <div class="card">⚡ Execution over prompts</div>
-    <div class="card">🚀 Built for speed & output</div>
-    <div class="card">📊 Real data integration</div>
-    <div class="card">💰 Start free, scale anytime</div>
-  </div>
-
+<div class="card">
+<h3>RepoScope</h3>
+<p>Deep GitHub repo intelligence and analysis.</p>
 </div>
-
-<!-- FLOW -->
-
-<div class="container section">
-
-  <h2>⚙️ How It Works</h2>
-
-  <div class="flow">
-    Create account → Enter workspace → Execute tasks → Get real outputs
-  </div>
+</div>
 
 </div>
 
 <!-- FINAL CTA -->
-
 <div class="container section">
 
-  <h2>🚀 Start Using DevStackHQ Today</h2>
+<h2>🚀 Launch Offer</h2>
+<p>First users get massive discounts. Early adopters win.</p>
 
-  <p>
-    Join early users building faster with execution-first AI.
-  </p>
-
-  <div class="cta">
-    <a href="https://devstackhq.com">
-      <button>⚡ Create Account & Start</button>
-    </a>
-  </div>
+<div class="cta">
+<a href="https://devstackhq.com">
+<button>⚡ Create Account</button>
+</a>
+</div>
 
 </div>
 
 <div class="footer">
-  Built for people who want results, not prompts.
+Execution > Prompting
 </div>
 
 </body>
