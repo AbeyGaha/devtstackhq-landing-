@@ -2,243 +2,363 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevStackHQ — Execution Engine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>DevStackHQ — Execution Engine for Developers</title>
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="/logo.png">
 
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0b0f19;
-  color: #ffffff;
-}
+  /* ===== GLOBAL RESET & PREMIUM BACKGROUND ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 20px;
-  text-align: center;
-}
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
+    /* 🔥 UPGRADED BACKGROUND: gradient + glow layers – premium "AI product" vibe */
+    background: radial-gradient(circle at 20% 20%, #1e1b4b, transparent 40%),
+                radial-gradient(circle at 80% 0%, #0ea5e9, transparent 40%),
+                #0b0f19;
+    color: #ffffff;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+  }
 
-h1 {
-  font-size: 64px;
-  margin-bottom: 10px;
-}
+  /* container – breathable max-width */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    text-align: center;
+  }
 
-h2 {
-  font-size: 30px;
-  color: #7c7cff;
-}
+  /* ===== LOGO GLOW + HOVER EFFECT ===== */
+  img {
+    filter: drop-shadow(0 0 25px rgba(99,102,241,0.5));
+    transition: 0.3s ease-in-out;
+  }
+  img:hover {
+    transform: scale(1.03);
+  }
 
-p {
-  font-size: 18px;
-  color: #cbd5e1;
-  max-width: 700px;
-  margin: auto;
-}
+  /* ===== HERO HEADINGS ===== */
+  h1 {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff, #a5b4fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    background: linear-gradient(145deg, #e0e7ff, #a78bfa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #f1f5f9;
+  }
 
-.cta button {
-  margin-top: 40px;
-  padding: 18px 40px;
-  font-size: 18px;
-  border-radius: 14px;
-  border: none;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
+  /* ===== CARD STYLES – PREMIUM HOVER GLOW ===== */
+  .card {
+    background: #111827;
+    padding: 28px 24px;
+    border-radius: 28px;
+    width: 280px;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    border: 1px solid rgba(255,255,255,0.05);
+    text-align: left;
+    backdrop-filter: blur(2px);
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    background: #1f2937;
+    box-shadow: 0 0 30px rgba(99,102,241,0.35), 0 10px 25px -5px rgba(0,0,0,0.3);
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: white;
+  }
+  .card p {
+    font-size: 0.95rem;
+    color: #cbd5e6;
+    line-height: 1.45;
+    margin: 0;
+  }
 
-.cta button:hover {
-  transform: scale(1.08);
-}
+  /* trust badge / product clarity strip */
+  .trust-badge {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 60px;
+    padding: 14px 32px;
+    margin: 40px auto 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid rgba(99,102,241,0.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  .trust-badge p {
+    margin: 0;
+    font-weight: 500;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .trust-badge p:first-child { color: #94a3f8; }
+  .trust-badge p:nth-child(2) { color: #7dd3fc; }
+  .trust-badge p:nth-child(3) { color: #c084fc; }
 
-.section {
-  margin-top: 100px;
-}
+  /* custom CTA buttons */
+  .cta button, .btn-primary {
+    margin-top: 20px;
+    padding: 16px 38px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(105deg, #6366f1, #8b5cf6);
+    color: white;
+    cursor: pointer;
+    transition: 0.25s ease;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 18px rgba(99,102,241,0.3);
+  }
+  .cta button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(105deg, #4f46e5, #7c3aed);
+    box-shadow: 0 12px 28px rgba(99,102,241,0.5);
+  }
 
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 40px;
-}
+  /* grid layout */
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 48px;
+  }
 
-.card {
-  background: #111827;
-  padding: 28px;
-  border-radius: 16px;
-  width: 280px;
-  transition: 0.3s;
-}
+  /* demo panel – animated lines & alive feels */
+  .demo-box {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 32px;
+    padding: 32px;
+    margin-top: 48px;
+    text-align: left;
+    border: 1px solid rgba(99,102,241,0.25);
+    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.4);
+  }
+  .demo-line {
+    background: #0b0f19;
+    padding: 14px 20px;
+    border-radius: 20px;
+    margin-top: 14px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.95rem;
+    color: #b9e0ff;
+    border-left: 4px solid #6366f1;
+    opacity: 0;  /* hidden until fadeIn animation */
+    animation: fadeInUp 0.5s forwards;
+  }
+  /* typing animation for specific line (preserve existing effect) */
+  .typing {
+    border-right: 2px solid #8b5cf6;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fadeInUp 0.5s forwards, blinkCursor 0.7s infinite, typingEffect 3s steps(40, end);
+    width: 0;
+    animation-delay: 0.6s, 0s, 0.6s;
+    animation-fill-mode: forwards, none, forwards;
+  }
+  @keyframes typingEffect {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes blinkCursor {
+    50% { border-color: transparent; }
+  }
+  /* sequential fade-in delays for live demo lines */
+  .demo-line:nth-child(1) { animation-delay: 0.2s; }
+  .demo-line:nth-child(2) { animation-delay: 0.6s; }
+  .demo-line:nth-child(3) { animation-delay: 1.0s; }
+  .demo-line:nth-child(4) { animation-delay: 1.4s; }
+  .demo-line:nth-child(5) { animation-delay: 1.8s; }
+  .demo-line:nth-child(6) { animation-delay: 2.2s; }
 
-.card:hover {
-  transform: translateY(-10px);
-  background: #1f2937;
-}
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-.demo-box {
-  background: #111827;
-  border-radius: 16px;
-  padding: 30px;
-  margin-top: 40px;
-  text-align: left;
-}
+  /* section spacing */
+  .section {
+    margin-top: 60px;
+  }
+  .footer {
+    margin-top: 80px;
+    padding: 40px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: #a5b4fc;
+  }
 
-.demo-line {
-  background: #0b0f19;
-  padding: 14px;
-  border-radius: 10px;
-  margin-top: 10px;
-  font-family: monospace;
-  color: #7dd3fc;
-}
-
-.typing {
-  border-right: 2px solid #7c7cff;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 3s steps(30, end), blink 1s infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink {
-  50% { border-color: transparent }
-}
-
-.trust-badge {
-  background: #111827;
-  border-radius: 12px;
-  padding: 16px 24px;
-  margin: 30px auto 20px;
-  display: inline-block;
-  text-align: center;
-  font-size: 16px;
-  color: #cbd5e1;
-}
-
-.trust-badge p {
-  margin: 8px 0;
-}
-
-.footer {
-  margin-top: 80px;
-  padding: 30px;
-  color: #6b7280;
-}
-
+  /* responsive tweaks */
+  @media (max-width: 720px) {
+    .container { padding: 40px 20px; }
+    h2 { font-size: 2rem; }
+    .trust-badge { flex-direction: column; background: #111827cc; border-radius: 32px; gap: 12px; padding: 20px; width: 90%; }
+    .card { width: 100%; max-width: 340px; margin: 0 auto; }
+    .demo-line { white-space: normal; word-break: break-word; }
+    .typing { white-space: normal; border-right: none; animation: fadeInUp 0.5s forwards; width: auto; }
+  }
+  a {
+    text-decoration: none;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #c084fc, #60a5fa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 </style>
 </head>
-
 <body>
 
-<!-- HERO SECTION (UPDATED: Logo, new heading & text) -->
+<!-- 🔥 HERO SECTION – EXECUTION LAYER POSITIONING -->
 <div class="container">
+  <!-- logo with glow & scale -->
+  <img src="/logo.png" alt="DevStackHQ Execution Platform" style="width: 400px; max-width: 85%; margin-bottom: 20px;">
+  
+  <!-- NEW CORE COPY: Execution Layer for Developers & Builders -->
+  <h2>Execution Layer for Developers & Builders</h2>
+  <p style="font-size: 1.25rem; max-width: 750px; margin: 0 auto; color: #cbd5e6;">
+    Stop prompting. Start executing.<br>
+    DevStackHQ turns ideas into production-ready code and content — instantly.
+  </p>
 
-<img src="/logo.png" alt="DevStackHQ Logo"
-     style="width: 420px; max-width: 90%; margin-bottom: 20px;">
-
-<h2>AI Platform for Coding & Content Execution</h2>
-
-<p>
-DevStackHQ is the platform.<br>
-SearchPulse AI and RepoScope are the tools that execute your work.
-</p>
-
-<p style="margin-top:20px; font-size:16px; color:#9ca3af;">
-Platform: DevStackHQ • Products: SearchPulse AI & RepoScope
-</p>
-
-<div class="cta">
-<a href="https://app.devstackhq.com?guest=1">
-<button>⚡ Try Live Demo</button>
-</a>
+  <!-- aggressive CTA: "Run Your First Execution" -->
+  <div class="cta" style="margin-top: 32px;">
+    <a href="https://app.devstackhq.com?guest=1">
+      <button>⚡ Run Your First Execution</button>
+    </a>
+  </div>
 </div>
 
+<!-- 📌 PRODUCT CLARITY STRIP (BELOW HERO) – removes confusion completely -->
+<div class="container" style="padding-top: 0; margin-top: -20px;">
+  <div class="trust-badge">
+    <p>⚡ SearchPulse → Code + Content Generation</p>
+    <p>🧠 RepoScope → Deep Codebase Analysis</p>
+    <p>🏗 DevStackHQ → Execution Platform</p>
+  </div>
 </div>
 
-<!-- LIVE DEMO FEEL (unchanged – correct) -->
+<!-- ⚡ LIVE DEMO – Now with alive staggered animation -->
 <div class="container section">
-
-<h2>⚡ See It In Action</h2>
-
-<div class="demo-box">
-<div class="demo-line">> User: Build REST API in Flask</div>
-<div class="demo-line typing">✔ API Generated + Routes + Auth + Deployment Ready</div>
-
-<div class="demo-line">> User: Write SEO Blog on AI Tools</div>
-<div class="demo-line">✔ 1500 words + Keywords + Ranking Structure</div>
-
-<div class="demo-line">> User: Fix Python API error</div>
-<div class="demo-line">✔ Bug fixed + optimized code</div>
+  <h2 style="font-size: 2.4rem;">⚡ See It In Action — Real Execution</h2>
+  <div class="demo-box">
+    <div class="demo-line">> User: Build REST API in Flask with JWT & SQLite</div>
+    <div class="demo-line typing">✔ API Generated + Routes + Auth + Deployment Ready</div>
+    <div class="demo-line">> User: Write SEO Blog on AI Tools for 2025</div>
+    <div class="demo-line">✔ 1800 words + Keywords + Ranking Structure + Meta</div>
+    <div class="demo-line">> User: Fix Python API error (async bug)</div>
+    <div class="demo-line">✔ Bug fixed + optimized async event loop + logging</div>
+  </div>
 </div>
 
-</div>
-
-<!-- CORE VALUE (trust badge already present) -->
+<!-- 🔥 WHY THIS HITS DIFFERENT - CARDS COMPLETELY REWRITTEN (OUTCOME-BASED) -->
 <div class="container section">
-
-<h2>💣 Why This Hits Different</h2>
-
-<div class="trust-badge">
-<p>⚡ No signup required for demo</p>
-<p>🔐 Secure execution environment</p>
-<p>💻 Built for developers & creators</p>
+  <h2>💣 Why Execution Changes Everything</h2>
+  <div class="grid">
+    <!-- ✨ Card 1: Zero Prompt Learning Curve -->
+    <div class="card">
+      <h3>Zero Prompt Learning Curve</h3>
+      <p>Just tell what you want. The system executes it end-to-end — no prompt engineering.</p>
+    </div>
+    <!-- ✨ Card 2: Direct Execution Output -->
+    <div class="card">
+      <h3>Direct Execution Output</h3>
+      <p>From idea to production-ready code, APIs, or content without manual middleware.</p>
+    </div>
+    <!-- ✨ Card 3: Context-Aware Intelligence -->
+    <div class="card">
+      <h3>Context-Aware Intelligence</h3>
+      <p>Understands your stack, folder structure, and goals automatically. Deep reasoning.</p>
+    </div>
+    <!-- ✨ Card 4: Unified Pipeline -->
+    <div class="card">
+      <h3>Unified Code & Content</h3>
+      <p>Generate backends, debug, write blogs, and create assets from one execution layer.</p>
+    </div>
+  </div>
 </div>
 
-<div class="grid">
-<div class="card">❌ No Prompt Engineering</div>
-<div class="card">⚡ Direct Execution Output</div>
-<div class="card">🧠 Built-in Intelligence</div>
-<div class="card">💻 Code + Content Unified</div>
-</div>
-
-</div>
-
-<!-- PRODUCTS SECTION (UPDATED descriptions) -->
+<!-- 🧩 INSIDE DEVSTACKHQ – PRODUCT DESCRIPTIONS UPGRADED -->
 <div class="container section">
-
-<h2>🧩 Inside DevStackHQ</h2>
-
-<div class="grid">
-<div class="card">
-<h3>SearchPulse AI</h3>
-<p>AI assistant to generate code, fix errors, and create SEO content instantly.</p>
+  <h2>🧩 Built on Execution Architecture</h2>
+  <div class="grid">
+    <!-- SearchPulse AI: production-ready execution -->
+    <div class="card">
+      <h3>⚡ SearchPulse AI</h3>
+      <p>Generate production-ready code, fix errors, and create SEO content — all in one execution pipeline.</p>
+    </div>
+    <!-- RepoScope: deep codebase analysis -->
+    <div class="card">
+      <h3>🧠 RepoScope</h3>
+      <p>Break down any repository into architecture, logic flow, and actionable insights in seconds.</p>
+    </div>
+  </div>
 </div>
 
-<div class="card">
-<h3>RepoScope</h3>
-<p>Analyze and understand codebases with deep insights and structured outputs.</p>
-</div>
-</div>
-
-</div>
-
-<!-- FINAL CTA (unchanged) -->
+<!-- 🚀 LAUNCH OFFER + FINAL CTA -->
 <div class="container section">
-
-<h2>🚀 Launch Offer</h2>
-<p>First users get massive discounts. Early adopters win.</p>
-
-<div class="cta">
-<a href="https://app.devstackhq.com">
-<button>⚡ Create Account</button>
-</a>
+  <h2>🚀 Launch Offer — First 500 Builders</h2>
+  <p style="font-size: 1.1rem; max-width: 560px;">Early access includes massive discounts and lifetime perks. Execution-first era begins now.</p>
+  <div class="cta">
+    <a href="https://app.devstackhq.com">
+      <button>⚡ Claim Early Access →</button>
+    </a>
+  </div>
 </div>
 
-</div>
-
+<!-- 🔥 FOOTER: Killer brand line (Execution is the new interface) -->
 <div class="footer">
-Execution > Prompting
+  Execution is the new interface. #DevStackHQ
 </div>
 
+<!-- optional: smooth remove any conflicting inline old badges, fully interactive -->
 </body>
 </html>
