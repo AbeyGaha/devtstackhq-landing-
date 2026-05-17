@@ -6,7 +6,7 @@
   <meta name="description" content="DevStackHQ — Execution Layer for Developers & Builders. Stop prompting, start executing. Generate production-ready code, analyze repos, and create content instantly with SearchPulse AI and RepoScope.">
   <meta name="keywords" content="DevStackHQ, Execution Engine, AI Code Generation, Repo Analysis, Developer Tools, SearchPulse, RepoScope">
   <meta name="author" content="DevStackHQ">
-  <meta property="og:title" content="DevStackHQ — Execution Engine for Developers">
+  <meta property="og:title" content="DevStackHQ — Build Production-Ready Apps, APIs & Content with AI">
   <meta property="og:description" content="Turn ideas into production-ready code, APIs & SEO content. No prompt engineering. Pure execution.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="/logo.png">
@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DevStackHQ — Execution Layer for Builders">
   <meta name="twitter:description" content="From idea to execution: code, content, analysis — unified.">
-  <title>DevStackHQ — Execution Engine for Developers</title>
+  <title>DevStackHQ — Build Production-Ready Code, APIs & Content with AI</title>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/logo.png">
   <style>
@@ -43,6 +43,11 @@
       margin: 0 auto;
       padding: 60px 24px;
       text-align: center;
+    }
+
+    /* fix sticky navbar overlap — add breathing space to first container (hero) */
+    .container:first-of-type {
+      padding-top: 90px;
     }
 
     /* subtle reduction for top/bottom spacing */
@@ -156,7 +161,7 @@
     .trust-badge p:nth-child(2) { color: #7dd3fc; }
     .trust-badge p:nth-child(3) { color: #c084fc; }
 
-    /* CTA Buttons – clean anchors with button styling */
+    /* CTA Buttons – clean anchors with button styling (single primary CTA) */
     .btn-primary {
       display: inline-block;
       margin-top: 20px;
@@ -483,6 +488,7 @@
     /* existing responsive improvements (preserve original) */
     @media (max-width: 780px) {
       .container { padding: 40px 20px; }
+      .container:first-of-type { padding-top: 80px; }
       h1 { font-size: 44px; }
       h2 { font-size: 2rem; }
       .trust-badge { 
@@ -524,30 +530,31 @@
   
   <div class="nav-right" id="navRight">
     <a href="#pricing" class="nav-link">Pricing</a>
-    <a href="https://app.devstackhq.com/login" class="btn-login" target="_blank" rel="noopener noreferrer">
+    <!-- removed target="_blank" for better in-app navigation flow -->
+    <a href="https://app.devstackhq.com/login" class="btn-login">
       Login
     </a>
-    <a href="https://app.devstackhq.com/signup" class="btn-signup" target="_blank" rel="noopener noreferrer">
+    <a href="https://app.devstackhq.com/signup" class="btn-signup">
       Sign Up
     </a>
   </div>
 </nav>
 
-<!-- 🔥 HERO SECTION – EXECUTION LAYER DOMINANCE -->
+<!-- 🔥 HERO SECTION – SINGLE PRIMARY CTA + CONVERSION-OPTIMIZED H1 -->
 <div class="container">
   <img class="logo" src="/logo.png" alt="DevStackHQ Execution Platform - Logo" loading="eager">
   
-  <!-- MAIN SEO HEADLINE (H1 for authority) -->
-  <h1>Execution Layer for Developers &amp; Builders</h1>
+  <!-- OUTCOME-DRIVEN H1 (replaces abstract branding) -->
+  <h1>From Idea to Production Code — Instantly</h1>
   <p class="hero-subhead">
     Stop prompting. Start executing.<br>
-    DevStackHQ turns ideas into production-ready code and content — instantly.
+    DevStackHQ turns your ideas into production-ready apps, APIs, and SEO content — zero friction.
   </p>
 
-  <!-- primary CTA (native anchor as button) -->
+  <!-- ONLY ONE PRIMARY CTA: Start Building → (no guest param, clean link) -->
   <div style="margin-top: 32px;">
-    <a href="https://app.devstackhq.com?guest=1" class="btn-primary" rel="noopener noreferrer">
-      ⚡ Run Your First Execution
+    <a href="https://app.devstackhq.com" class="btn-primary">
+      🚀 Start Building →
     </a>
   </div>
 </div>
@@ -612,17 +619,13 @@
   </div>
 </div>
 
-<!-- 🚀 SIMPLE PRICING SECTION (ID ADDED FOR ANCHOR) -->
+<!-- 🚀 SIMPLE PRICING SECTION (ID for anchor, NO competing CTA) -->
 <div class="container section" id="pricing">
   <h2>⚡ Simple Pricing. Real Execution.</h2>
   <p style="font-size: 1.2rem; max-width: 680px; margin-left: auto; margin-right: auto; color: #cbd5e6;">
     Built for developers, founders, and freelancers. No hidden costs, no “first X” gimmicks — just pure execution power.
   </p>
-  <div style="margin-top: 24px;">
-    <a href="https://app.devstackhq.com" class="btn-primary" rel="noopener noreferrer">
-      🚀 Start Building →
-    </a>
-  </div>
+  <!-- REMOVED conflicting "Start Building" CTA to keep a single primary action in hero -->
 </div>
 
 <!-- 🔥 BRAND FOOTER -->
@@ -630,33 +633,31 @@
   Execution is the new interface. #DevStackHQ
 </div>
 
-<!-- Simple production-grade JS for mobile menu: toggle + close on link click + resize reset -->
+<!-- PRODUCTION-GRADE JS: fixed navbar variable order, removed target="_blank" conflicts, better mobile UX -->
 <script>
   (function() {
     const hamburger = document.getElementById('hamburgerBtn');
     const navRight = document.getElementById('navRight');
+    // CRITICAL FIX: declare navbar before using it inside event listener
+    const navbar = document.querySelector('.navbar');
 
     if (hamburger && navRight) {
-      // Toggle mobile menu
       function toggleMenu() {
         navRight.classList.toggle('active');
-        // Optional: add aria-expanded
         const expanded = navRight.classList.contains('active');
         hamburger.setAttribute('aria-expanded', expanded);
       }
 
       hamburger.addEventListener('click', toggleMenu);
 
-      // Close menu when any link inside nav-right is clicked (smooth UX)
+      // close menu on link click (mobile) + smooth pricing scroll
       const navLinks = navRight.querySelectorAll('a');
       navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-          // Close menu only if it's open and viewport is mobile
           if (window.innerWidth <= 820 && navRight.classList.contains('active')) {
             navRight.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
           }
-          // For Pricing link, let natural scroll happen (smooth already in CSS)
           if (link.getAttribute('href') === '#pricing') {
             e.preventDefault();
             const pricingSection = document.getElementById('pricing');
@@ -667,7 +668,7 @@
         });
       });
 
-      // On resize > 820px, remove active class and reset visibility if needed
+      // close menu on window resize (desktop)
       window.addEventListener('resize', function() {
         if (window.innerWidth > 820) {
           if (navRight.classList.contains('active')) {
@@ -677,19 +678,18 @@
         }
       });
 
-      // Close menu when clicking outside (optional premium UX)
+      // click outside to close menu (navbar variable is now defined)
       document.addEventListener('click', function(event) {
+        if (!navbar) return;
         const isInsideNav = navbar.contains(event.target);
         if (!isInsideNav && window.innerWidth <= 820 && navRight.classList.contains('active')) {
           navRight.classList.remove('active');
           hamburger.setAttribute('aria-expanded', 'false');
         }
       });
-
-      const navbar = document.querySelector('.navbar');
     }
 
-    // extra: smooth scroll for any #pricing anchor (avoid weird overlaps)
+    // smooth scroll for all pricing anchors (redundant but safe)
     const pricingLinks = document.querySelectorAll('a[href="#pricing"]');
     pricingLinks.forEach(link => {
       link.addEventListener('click', (e) => {
