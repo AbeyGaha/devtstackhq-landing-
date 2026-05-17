@@ -129,7 +129,7 @@
       line-height: 1.45;
     }
 
-    /* trust badge – signature clarity strip (no container overlap issues) */
+    /* trust badge – signature clarity strip */
     .trust-badge {
       background: rgba(17, 24, 39, 0.8);
       backdrop-filter: blur(12px);
@@ -156,7 +156,7 @@
     .trust-badge p:nth-child(2) { color: #7dd3fc; }
     .trust-badge p:nth-child(3) { color: #c084fc; }
 
-    /* CTA Buttons – clean anchors with button styling (no nested button/link issues) */
+    /* CTA Buttons – clean anchors with button styling */
     .btn-primary {
       display: inline-block;
       margin-top: 20px;
@@ -213,7 +213,7 @@
       animation: fadeInUp 0.5s forwards;
       word-break: break-word;
     }
-    /* refined typing effect (preserve but avoid overflow) */
+    /* refined typing effect */
     .typing {
       border-right: 2px solid #8b5cf6;
       white-space: nowrap;
@@ -224,7 +224,6 @@
       animation-delay: 0.6s, 0s, 0.6s;
       animation-fill-mode: forwards, none, forwards;
     }
-    /* smooth scroll for long lines */
     .typing::-webkit-scrollbar {
       height: 4px;
       background: #1e293b;
@@ -251,7 +250,6 @@
         transform: translateY(0);
       }
     }
-    /* line delays for sequential show */
     .demo-line:nth-child(1) { animation-delay: 0.15s; }
     .demo-line:nth-child(2) { animation-delay: 0.55s; }
     .demo-line:nth-child(3) { animation-delay: 0.95s; }
@@ -259,7 +257,6 @@
     .demo-line:nth-child(5) { animation-delay: 1.75s; }
     .demo-line:nth-child(6) { animation-delay: 2.15s; }
 
-    /* misc */
     .section {
       margin-top: 60px;
     }
@@ -283,7 +280,207 @@
       color: transparent;
     }
 
-    /* responsive fine-tuning */
+    /* ========== PRODUCTION NAVBAR (GLASS + STICKY + AUTH) ========== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      backdrop-filter: blur(14px);
+      background: rgba(11, 15, 25, 0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 32px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      width: 42px;
+      height: 42px;
+      filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.5));
+      transition: transform 0.2s;
+    }
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .brand-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: linear-gradient(125deg, #ffffff, #c084fc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    /* desktop right area */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      color: #cbd5e6;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s ease;
+      font-size: 1rem;
+      padding: 8px 0;
+    }
+    .nav-link:hover {
+      color: white;
+      text-shadow: 0 0 6px rgba(139, 92, 246, 0.6);
+    }
+
+    /* Login button (secondary outlined) */
+    .btn-login {
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      background: transparent;
+      padding: 8px 22px;
+      border-radius: 999px;
+      color: #f1f5f9;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(4px);
+    }
+    .btn-login:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #a78bfa;
+      color: white;
+      transform: scale(1.02);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Sign Up button (primary gradient) */
+    .btn-signup {
+      background: linear-gradient(105deg, #6366f1, #8b5cf6);
+      padding: 8px 24px;
+      border-radius: 999px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+      border: none;
+    }
+    .btn-signup:hover {
+      transform: scale(1.04);
+      background: linear-gradient(105deg, #4f46e5, #7c3aed);
+      box-shadow: 0 8px 18px rgba(99, 102, 241, 0.5);
+    }
+
+    /* Hamburger (mobile) */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 22px;
+      z-index: 10000;
+      padding: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2.5px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      transition: all 0.25s ease-in-out;
+    }
+
+    /* mobile menu styles */
+    @media (max-width: 820px) {
+      .navbar {
+        padding: 12px 24px;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-right {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(11, 15, 25, 0.96);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        padding: 28px 24px;
+        gap: 28px;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+        border-radius: 0 0 28px 28px;
+        box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5);
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1), opacity 0.3s ease;
+        visibility: hidden;
+        z-index: 9998;
+      }
+      .nav-right.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      .nav-link {
+        font-size: 1.2rem;
+        padding: 8px 0;
+      }
+      .btn-login, .btn-signup {
+        width: 200px;
+        text-align: center;
+        padding: 12px 0;
+        font-size: 1rem;
+      }
+      .brand-name {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* small touch for extra small devices */
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 10px 18px;
+      }
+      .nav-logo {
+        width: 34px;
+        height: 34px;
+      }
+      .brand-name {
+        font-size: 1rem;
+      }
+      .nav-right {
+        top: 62px;
+        padding: 24px 20px;
+        gap: 22px;
+      }
+    }
+
+    /* Prevent overflow and adjust container spacing (navbar doesn't cover hero) */
+    body {
+      overflow-x: hidden;
+    }
+    
+    /* Pricing section anchor offset for sticky header */
+    #pricing {
+      scroll-margin-top: 90px;
+    }
+
+    /* existing responsive improvements (preserve original) */
     @media (max-width: 780px) {
       .container { padding: 40px 20px; }
       h1 { font-size: 44px; }
@@ -311,6 +508,31 @@
 </head>
 <body>
 
+<!-- ✅ PROFESSIONAL STICKY NAVBAR (GLASS+AUTH) – PLACEMENT: immediately after <body> -->
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="/logo.png" alt="DevStackHQ Logo" class="nav-logo">
+    <span class="brand-name">DevStackHQ</span>
+  </div>
+  
+  <!-- Hamburger for mobile -->
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <div class="nav-right" id="navRight">
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="https://app.devstackhq.com/login" class="btn-login" target="_blank" rel="noopener noreferrer">
+      Login
+    </a>
+    <a href="https://app.devstackhq.com/signup" class="btn-signup" target="_blank" rel="noopener noreferrer">
+      Sign Up
+    </a>
+  </div>
+</nav>
+
 <!-- 🔥 HERO SECTION – EXECUTION LAYER DOMINANCE -->
 <div class="container">
   <img class="logo" src="/logo.png" alt="DevStackHQ Execution Platform - Logo" loading="eager">
@@ -330,7 +552,7 @@
   </div>
 </div>
 
-<!-- 📌 PRODUCT CLARITY STRIP – eliminates confusion, perfectly integrated -->
+<!-- 📌 PRODUCT CLARITY STRIP – eliminates confusion -->
 <div class="container container-sm" style="padding-top: 0;">
   <div class="trust-badge">
     <p>⚡ SearchPulse → Code + Content Generation</p>
@@ -390,8 +612,8 @@
   </div>
 </div>
 
-<!-- 🚀 REPLACED SECTION: Simple Pricing – No Launch Offers -->
-<div class="container section">
+<!-- 🚀 SIMPLE PRICING SECTION (ID ADDED FOR ANCHOR) -->
+<div class="container section" id="pricing">
   <h2>⚡ Simple Pricing. Real Execution.</h2>
   <p style="font-size: 1.2rem; max-width: 680px; margin-left: auto; margin-right: auto; color: #cbd5e6;">
     Built for developers, founders, and freelancers. No hidden costs, no “first X” gimmicks — just pure execution power.
@@ -403,10 +625,82 @@
   </div>
 </div>
 
-<!-- 🔥 BRAND FOOTER — THE NEW INTERFACE -->
+<!-- 🔥 BRAND FOOTER -->
 <div class="footer">
   Execution is the new interface. #DevStackHQ
 </div>
 
+<!-- Simple production-grade JS for mobile menu: toggle + close on link click + resize reset -->
+<script>
+  (function() {
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navRight = document.getElementById('navRight');
+
+    if (hamburger && navRight) {
+      // Toggle mobile menu
+      function toggleMenu() {
+        navRight.classList.toggle('active');
+        // Optional: add aria-expanded
+        const expanded = navRight.classList.contains('active');
+        hamburger.setAttribute('aria-expanded', expanded);
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+
+      // Close menu when any link inside nav-right is clicked (smooth UX)
+      const navLinks = navRight.querySelectorAll('a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          // Close menu only if it's open and viewport is mobile
+          if (window.innerWidth <= 820 && navRight.classList.contains('active')) {
+            navRight.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+          }
+          // For Pricing link, let natural scroll happen (smooth already in CSS)
+          if (link.getAttribute('href') === '#pricing') {
+            e.preventDefault();
+            const pricingSection = document.getElementById('pricing');
+            if (pricingSection) {
+              pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+
+      // On resize > 820px, remove active class and reset visibility if needed
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 820) {
+          if (navRight.classList.contains('active')) {
+            navRight.classList.remove('active');
+          }
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close menu when clicking outside (optional premium UX)
+      document.addEventListener('click', function(event) {
+        const isInsideNav = navbar.contains(event.target);
+        if (!isInsideNav && window.innerWidth <= 820 && navRight.classList.contains('active')) {
+          navRight.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      const navbar = document.querySelector('.navbar');
+    }
+
+    // extra: smooth scroll for any #pricing anchor (avoid weird overlaps)
+    const pricingLinks = document.querySelectorAll('a[href="#pricing"]');
+    pricingLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById('pricing');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>
